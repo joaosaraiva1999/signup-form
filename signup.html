@@ -25,28 +25,38 @@
         <p class="welcome-text">
           Create an account — first 14 days on us, no card required.
         </p>
-        <form class="input-section">
+        <form class="input-section" action="#" method="post">
           <input
             class="full-name-input"
             type="text"
-            name=""
-            id=""
+            name="full-name"
+            id="full-name"
             placeholder="Full Name"
+            autocomplete="name"
+            minlength="2"
+            required
           />
           <input
             class="email-input"
             type="email"
-            name=""
-            id=""
+            name="email"
+            id="signup-email"
             placeholder="Email Address"
+            autocomplete="email"
+            required
           />
           <div class="password-wrapper">
             <input
               class="password-input"
               type="password"
-              name=""
-              id=""
+              name="password"
+              id="signup-password"
               placeholder="Password"
+              autocomplete="new-password"
+              minlength="8"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}"
+              title="Use at least 8 characters, including uppercase and lowercase letters, a number, and a symbol."
+              required
             />
             <button
               type="button"
@@ -69,9 +79,12 @@
             <input
               class="confirm-password-input"
               type="password"
-              name=""
-              id=""
+              name="confirm-password"
+              id="confirm-password"
               placeholder="Confirm password"
+              autocomplete="new-password"
+              minlength="8"
+              required
             />
           </div>
           <button class="submit-btn" type="submit">

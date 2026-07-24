@@ -1,96 +1,41 @@
-# Studio Auth — Sign in & Create account
+# Studio Auth — Sign in and Create account
 
-A warm, responsive authentication experience for a creative studio workspace. This project pairs a calm editorial visual language with the familiar interaction patterns users expect from a modern sign-in and registration flow.
+A small front-end project for a clean sign-in and account creation experience. I built it as a simple exercise in layout, typography, form details, and responsive styling without using a framework.
 
-The interface is intentionally lightweight: it runs directly in the browser, has no build step, and keeps the focus on thoughtful UI details, accessible form affordances, and clean front-end fundamentals.
+## What is included
 
-## Why this project stands out
+- Sign-in and create-account pages with shared styling
+- Responsive card layout for desktop and smaller screens
+- Native HTML form validation for required fields, email format, and password rules
+- Show/hide password control
+- Password-strength indicator on the create-account page
+- Sign-in, social-login, SSO, terms, and privacy UI elements
 
-- **Two connected flows:** users can move between Sign In and Create account without losing the visual context of the experience.
-- **Useful interaction details:** password visibility toggling, a live password-strength meter, inline strength labels, and responsive hover states make the forms feel considered rather than static.
-- **Clear visual hierarchy:** Fraunces brings an editorial character to headings while Geist keeps labels and controls crisp and readable.
-- **Responsive by default:** the card uses fluid sizing and a viewport-aware layout so the experience remains centered and usable across screen sizes.
-- **Honest product scaffolding:** social sign-in, SSO, password recovery, terms, and privacy entry points are represented in the UI, ready to be connected to real services.
+## Built with
 
-## Preview
+- HTML5
+- CSS3
+- Vanilla JavaScript for the small UI interactions
+- Lucide icons
+- Fraunces and Geist fonts
 
-Open either page locally to explore the experience:
-
-- [Sign in](signin.html)
-- [Create account](signup.html)
-
-## Features
-
-### Sign-in flow
-
-- Email and password fields
-- “Keep me signed in” option
-- Password visibility toggle
-- Forgot-password entry point
-- Social sign-in and SSO presentation
-- Terms of Service and Privacy Policy acknowledgement
-
-### Registration flow
-
-- Full name, email, password, and password confirmation fields
-- Password visibility toggle
-- Live password-strength feedback based on length, case, numbers, and symbols
-- Strength meter with Weak, Fair, Good, and Strong states
-- Alternate sign-up methods presented consistently with the sign-in screen
-
-## Tech stack
-
-- **HTML5** for semantic page structure and form controls
-- **CSS3** for the responsive layout, design tokens, gradients, states, and typography
-- **Vanilla JavaScript** for page-aware navigation styling, password visibility, and strength scoring
-- **Lucide** for interface icons
-- **Modern Normalize** for a consistent browser baseline
-- **Google Fonts** for Fraunces and Geist
-
-## Project structure
+## Files
 
 ```text
 .
 ├── assets/
-│   └── style.css       # Shared visual system and responsive layout
+│   └── style.css
 ├── scripts/
-│   └── script.js       # Form interactions and password-strength logic
-├── signin.html         # Sign-in experience
-├── signup.html         # Account creation experience
+│   └── script.js
+├── signin.html
+├── signup.html
 └── README.md
 ```
 
-## Run locally
+## A few implementation notes
 
-No installation or build process is required.
+The forms use browser-native validation. Email fields use `type="email"`, the important fields are required, and passwords have length and character requirements through HTML attributes. No JavaScript is used to decide whether a field is valid.
 
-1. Clone the repository.
-2. Open `signin.html` or `signup.html` in a browser.
+The JavaScript that is already in the project is only used for the password visibility button, the active page tab, and the password-strength display. The forms are still a front-end demo: they do not send data to an authentication service yet, and the social-login, SSO, forgot-password, terms, and privacy links are not connected to real destinations.
 
-For a local server, run this from the project directory:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit [http://localhost:8000/signin.html](http://localhost:8000/signin.html).
-
-Using a local server is useful when testing navigation and external assets in a browser-like environment.
-
-## Implementation notes
-
-The project deliberately keeps the JavaScript small and framework-free. `script.js` detects which page is active, highlights the corresponding tab, toggles the password field between masked and visible states, and calculates password feedback as the user types.
-
-The current repository is a front-end prototype. Form submission, authentication, account persistence, social providers, SSO, password recovery, and legal-document links still need to be connected to product services before production use. The UI is structured so those integrations can be added without changing the core visual system.
-
-## Suggested next steps
-
-- Add `label` elements, stable `id`/`name` attributes, and explicit validation messages for production-grade accessibility.
-- Connect the forms to an authentication API and handle loading, success, and error states.
-- Make the social, SSO, password-recovery, terms, and privacy actions functional.
-- Add automated checks for password rules, navigation, and responsive rendering.
-- Self-host critical fonts and icons if the project needs stronger offline performance or stricter privacy controls.
-
-## About the work
-
-This project demonstrates the ability to turn a simple authentication requirement into a coherent product surface: reusable styling, page-to-page consistency, responsive composition, and small interactions that improve user confidence. It is a compact example of front-end craftsmanship with clear room for a production integration layer.
+The next practical step would be to connect both forms to an API and add server-side validation. The confirm-password check should also be handled there, since matching two fields cannot be done with native HTML validation alone.

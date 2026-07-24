@@ -23,21 +23,26 @@
         <p class="welcome-text">
           Sign in to continue to your studio workspace.
         </p>
-        <form class="input-section">
+        <form class="input-section" action="#" method="post">
           <input
             class="email-input"
             type="email"
-            name=""
-            id=""
+            name="email"
+            id="signin-email"
             placeholder="Email Address"
+            autocomplete="email"
+            required
           />
           <div class="password-wrapper">
             <input
               class="password-input"
               type="password"
-              name=""
-              id=""
+              name="password"
+              id="signin-password"
               placeholder="Password"
+              autocomplete="current-password"
+              minlength="8"
+              required
             />
             <button
               type="button"
@@ -49,7 +54,7 @@
           </div>
           <div class="forgotpass-div">
             <div class="check">
-              <input type="checkbox" name="" id="" />
+              <input type="checkbox" name="keep-signed-in" id="keep-signed-in" />
               <p>Keep me Sign in</p>
             </div>
             <div class="forgot-password">
